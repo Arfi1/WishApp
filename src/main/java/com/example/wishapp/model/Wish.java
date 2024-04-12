@@ -2,6 +2,7 @@ package com.example.wishapp.model;
 
 public class Wish {
     private int wishID;
+    private String name;
     private String description;
     private String image;
     private String url;
@@ -10,8 +11,9 @@ public class Wish {
 
     }
 
-    public Wish(int wishID, String description, String image, String url) {
+    public Wish(int wishID, String name, String description, String image, String url) {
         this.wishID = wishID;
+        this.name = name;
         this.description = description;
         this.image = image;
         this.url = url;
@@ -23,6 +25,14 @@ public class Wish {
 
     public int getWishID() {
         return wishID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
