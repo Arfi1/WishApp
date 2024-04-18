@@ -11,9 +11,4 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("username", userService.ge)
-
-    }
 }
