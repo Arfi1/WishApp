@@ -3,6 +3,7 @@ package com.example.wishapp.controller;
 import com.example.wishapp.model.Wish;
 import com.example.wishapp.repository.WishRepository;
 import com.example.wishapp.service.WishListService;
+import com.example.wishapp.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,38 +14,22 @@ import java.util.List;
 public class WishController {
 
     @Autowired
-    private WishRepository wishRepository;
+    private WishService wishService;
 
-    @Autowired
-    private WishListService wishListService;
-    @GetMapping("/")
-    public String showWishes(Model model) {
-        List<Wish> wishes = wishRepository.findAll();
-
-        model.addAttribute("wishes", wishes);
-        model.addAttribute("newWish", new Wish());
-        return "Wish";
-    }
     @GetMapping("/confirm_delete")
     public String confirmDelete(@RequestParam int id, Model model) {
-        model.addAttribute(wishListService.getWishList(id));
+        model.addAttribute(wishService.getWish(id));
         return "home/confirm_delete";
     }
     @PostMapping("/delete")
     public String delete(@RequestParam int id) {
-        wishListService.delete(id);
+        wishService.deleteById(id);
         return "redirect:/";
     }
 
     @PostMapping("/wishes/add")
     public String addWish(@ModelAttribute("newWish") Wish newWish) {
-      //  wishRepository.save(newWish);
-        return "redirect:/";
-    }
-
-    @GetMapping("/wishes/delete/{id}")
-    public String deleteWish(@PathVariable Long id) {
-        //wishRepository.deleteById(id);
+        wishService.getWishes().add(newWish);
         return "redirect:/";
     }
         @PostMapping("/validate")
