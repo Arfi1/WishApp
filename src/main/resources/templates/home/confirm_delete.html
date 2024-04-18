@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<h1> Confirm delete</h1>
+
+<table>
+    <!-- First TR-statement of confirm delete -->
+    <tr>
+        <td>ID</td><td th:text="${wish.Wishid}"></td>
+    </tr>
+    <td>Title</td><td th:text="${wish.title}"></td>
+    </tr>
+    <td>Billed</td><td th:text="${wish.billed}"></td>
+    </tr>
+    <td>Beskrivelse</td><td th:text="${wish.beskrivelse}"></td>
+    </tr>
+    <td>URL</td><td th:text="${wish.URL}"></td>
+    </tr>
+
+    <!-- Second TR statement of cancel and delete -->
+    <tr>
+        <!-- First form -->
+        <form action="/delete" method="post">
+            <input type="hidden" name="Wishid" th:value="${wish.Wishid}">
+            <button type="submit">Delete</button>
+        </form>
+        <!-- Second form -->
+        <form action="/" method="get">
+            <button>Cancel</button>
+        </form>
+    </tr>
+</table>
+
+</body>
+</html>
