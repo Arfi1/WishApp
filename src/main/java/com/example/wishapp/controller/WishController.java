@@ -47,8 +47,6 @@ public class WishController {
         //wishRepository.deleteById(id);
         return "redirect:/";
     }
-    @Controller
-    public class UserController {
         @PostMapping("/validate")
         public String validate(Model model, @RequestParam String name,
                                @RequestParam String password) {
@@ -61,4 +59,3 @@ public class WishController {
             }
         }
     }
-}
