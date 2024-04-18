@@ -21,13 +21,13 @@ public class WishRepository {
     }
 
     public Wish getWish(int id) {
-        String query = "SELECT * FROM wish WHERE id = ?;";
+        String query = "SELECT * FROM wish WHERE wishid = ?;";
         RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
     public void deleteById(int id) {
-        String query = "DELETE FROM wish WHERE id = ?";
+        String query = "DELETE FROM wish WHERE wishid = ?";
         jdbcTemplate.update(query, id);
     }
 
