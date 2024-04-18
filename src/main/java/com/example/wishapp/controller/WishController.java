@@ -29,8 +29,8 @@ public class WishController {
 
     @PostMapping("/wishes/add")
     public String addWish(@ModelAttribute("newWish") Wish newWish) {
-        wishService.getWishes().add(newWish);
-        return "redirect:/";
+        wishService.save(newWish);
+        return "redirect:/wishlist"; // Redirect to the wishlist page
     }
         @PostMapping("/validate")
         public String validate(Model model, @RequestParam String name,
