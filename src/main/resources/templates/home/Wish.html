@@ -1,23 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-
-<h1>Wishlist</h1>
-<form action="#" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
-    <label>Name:</label>
-    <input th:field="name" type="text"/>
-    <label>Description:</label>
-    <input type="text" th:field="description"/>
-    <button type="submit">Add Wish</button>
-</form>
-<ul>
-    <li th:each="wish : ${wishes}">
-        <span th:text="${wish.name} + ' - ' + ${wish.description}"></span>
-        <a th:href="@{/wishes/delete/{id}(id=${wish.id})}">Delete</a>
-    </li>
-</ul>
-
+<div class="form-container">
+    <h1>Create Wishlist</h1>
+    <form action="#" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
+    <form method="post" action="/WishList">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <input type="submit" value="Create">
+    </form>
+    </form>
+</div>
 </body>
 </html>
