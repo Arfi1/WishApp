@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WishListService {
-   @Autowired
+
+}
+  /* @Autowired
     private WishListRepository wishListRepository;
 
     public WishList getWishListRepository(int id) {
@@ -21,4 +23,4 @@ public class WishListService {
     public void delete(int id) {
 
     }
-}
+}*/

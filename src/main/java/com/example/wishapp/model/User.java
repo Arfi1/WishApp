@@ -1,36 +1,43 @@
 package com.example.wishapp.model;
 
-
 public class User {
-    private int id;
-    private String name;
+    private int userID;
+    private String userName;
+    private String password;
     private String email;
 
     public User() {
-
     }
 
-    public User( int id, String name, String email) {
-        this.id = id;
-        this.name = name;
+    public User(int userID, String userName, String password, String email) {
+        this.userID = userID;
+        this.userName = userName;
+        this.password = password;
         this.email = email;
     }
 
-
-    public int getId() {
-        return id;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -41,4 +48,3 @@ public class User {
         this.email = email;
     }
 }
-
