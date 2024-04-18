@@ -2,12 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wishing is fun!</title>
+    <title>Wishlist</title>
 </head>
 <body>
 
-<h1>Wishing is fun!</h1>
+<h1>Wishlist</h1>
+<form action="/new" method ="get">
+    <button type="submit">New</button>
+</form>
 
+<table>
+    <thead>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Billed </td>
+    <td> URL </td>
+    <td> Update </td>
+    <td> Delete </td>
+    </thead>
+    <tr th:each="wish: ${wishes}">
+        <td th:text="${wish.Wishid}"></td>
+        <td th:text="${wish.title}"></td>
+        <td th:text="${wish.billed}"></td>
+        <td th:text="${wish.URL}"></td>
+        <td>
+            <form action="/prepare_update" method="get">
+                <input type="hidden" name="id" th:value="${wish.id}">
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td>
+            <form action="/confirm_delete" method="get">
+                <input type="hidden" name="id" th:value="${wish.id}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+
+    </tr>
+</table>
 
 </body>
 </html>

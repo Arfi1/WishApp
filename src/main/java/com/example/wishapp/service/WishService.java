@@ -10,19 +10,29 @@ import java.util.List;
 public class WishService {
     @Autowired
     WishRepository wishRepository;
-    public List<Wish> getWishes(){
+
+    public List<Wish> getWishes() {
         return wishRepository.getWishes();
     }
-    public Wish getWish(int id){
+
+    public Wish getWish(int id) {
         return wishRepository.getWish(id);
     }
-    public void deleteById(int id){
-        wishRepository.deleteById(id);
+
+    public void delete(int id) {
+        wishRepository.delete(id);
     }
-    public void save(Wish wish){
-        wishRepository.save(wish);
+
+    public void insert(int WishID, String title, String beskrivelse, String billed, String URL) {
+        wishRepository.insert(WishID, beskrivelse, title, billed, URL);
     }
-    public List<Wish> findAll(){
-        return wishRepository.findAll();
+
+    public Wish prepareUpdate(int id) {
+        return wishRepository.getWish(id);
+    }
+
+    public void update(int WishID, String title, String beskrivelse, String billed, String URL) {
+        wishRepository.update(WishID, beskrivelse, title, billed, URL);
+
     }
 }

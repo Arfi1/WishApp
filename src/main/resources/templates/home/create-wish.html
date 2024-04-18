@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Create Wish</h1>x
+    <form action="#" th:action="@{/create-wish}" th:object="${newWish}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" required><br><br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" th:field="*{description}" required><br><br>
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" th:field="*{image}" required><br><br>
+        <label for="url">URL:</label>
+        <input type="text" id="url" th:field="*{url}" required><br><br>
+        <input type="submit" value="Create">
+    </form>
+
+</div>
+</body>
+</html>

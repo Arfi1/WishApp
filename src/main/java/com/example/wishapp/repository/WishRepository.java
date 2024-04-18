@@ -12,33 +12,36 @@ import java.util.List;
 @Repository
 public class WishRepository {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    JdbcTemplate jdbcTemplate;
 
     public List<Wish> getWishes() {
-        String query = "SELECT * FROM wish;";
-        RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
+        String query = "SELECT * FROM Wish;";
+        RowMapper rowMapper = new BeanPropertyRowMapper(Wish.class);
         return jdbcTemplate.query(query, rowMapper);
     }
 
     public Wish getWish(int id) {
-        String query = "SELECT * FROM wish WHERE wishid = ?;";
+        String query = "SELECT * FROM wish WHERE id = ?;";
         RowMapper<Wish> rowMapper = new BeanPropertyRowMapper<>(Wish.class);
         return jdbcTemplate.queryForObject(query, rowMapper, id);
     }
 
-    public void deleteById(int id) {
-        String query = "DELETE FROM wish WHERE wishid = ?";
+    public void delete(int id) {
+        String query = "Delete FROM movie WHERE id = ?";
         jdbcTemplate.update(query, id);
     }
 
-    public void save(Wish wish) {
-        String query = "INSERT INTO wish(name, description,)" +
-                "VALUES (?,?,?);";
-        jdbcTemplate.update(query, wish.getName(), wish.getDescription());
+    public void insert(int WishID, String beskrivelse, String title, String billed, String URL) {
+        String query = "INSERT INTO wish(WishID, beskrivelse, title, billed, URL)" + "VALUES (?,?,?,?);";
+        jdbcTemplate.update(query, WishID, beskrivelse, title, billed, URL);
     }
 
-    public List<Wish> findAll() {
-        String query = "SELECT * FROM wish;";
-        return jdbcTemplate.query(query, new BeanPropertyRowMapper<>(Wish.class));
+    public void update(int WishID, String title, String beskrivelse, String billed, String URL) {
+        String query = "UPDATE Wish SET title = ?," +
+                "beskrivelse = ?," +
+                "billed = ?," +
+                "URL = ?" +
+                "WHERE Wishid = ?;";
+        jdbcTemplate.update(query, WishID, beskrivelse, title, billed, URL);
     }
 }
