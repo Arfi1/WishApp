@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Wishlist</title>
 </head>
 <body>
-
+<h1>Wishlist</h1>
+<form action="#" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="{name}"/>
+    <label>Description:</label>
+    <input type="text" th:field="{description}"/>
+    <button type="submit">Add Wish</button>
+</form>
+<ul>
+    <li th:each="wish : ${wishes}">
+        <span th:text="${wish.name} + ' - ' + ${wish.description}"></span>
+        <a th:href="@{/wishes/delete/{id}(id=${wish.id})}">Delete</a>
+    </li>
+</ul>
 </body>
 </html>
