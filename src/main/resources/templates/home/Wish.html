@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 </head>
 <body>
-<h1> hello world!</h1>
+
+<h1>Wishlist</h1>
+<form action="#" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
+    <label>Name:</label>
+    <input th:field="name" type="text"/>
+    <label>Description:</label>
+    <input type="text" th:field="description"/>
+    <button type="submit">Add Wish</button>
+</form>
+<ul>
+    <li th:each="wish : ${wishes}">
+        <span th:text="${wish.name} + ' - ' + ${wish.description}"></span>
+        <a th:href="@{/wishes/delete/{id}(id=${wish.id})}">Delete</a>
+    </li>
+</ul>
+
 </body>
 </html>

@@ -5,7 +5,6 @@ import com.example.wishapp.repository.WishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class WishListService {
    @Autowired
@@ -13,5 +12,13 @@ public class WishListService {
 
     public WishList getWishListRepository(int id) {
         return wishListRepository.getWishList(id);
+    }
+
+    public Object getWishList(int id) {
+       return getWishList(id);
+    }
+
+    public void delete(int id) {
+
     }
 }
