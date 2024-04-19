@@ -24,7 +24,7 @@ public class WishService {
     }
 
     public void insert(int WishID, String title, String beskrivelse, String billed, String URL) {
-        wishRepository.insert(WishID, beskrivelse, title, billed, URL);
+        wishRepository.insert(WishID, title, beskrivelse, billed, URL);
     }
 
     public Wish prepareUpdate(int id) {

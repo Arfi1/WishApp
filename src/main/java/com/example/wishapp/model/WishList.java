@@ -6,16 +6,16 @@ import java.util.List;
 public class WishList {
     private int wishListID;
     private String title;
-    private String image;
+    private String billed;
     private List<Wish> wishes;
 
     public WishList() {
         this.wishes = new ArrayList<>();
     }
 
-    public WishList(String title, String image) {
+    public WishList(String title, String billed) {
         this.title = title;
-        this.image = image;
+        this.billed = billed;
         this.wishes = new ArrayList<>();
     }
 
@@ -35,12 +35,12 @@ public class WishList {
         this.title = title;
     }
 
-    public String getImage() {
-        return image;
+    public String getBilled() {
+        return billed;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setBilled(String billed) {
+        this.billed = billed;
     }
 
     public List<Wish> getWishes() {
@@ -60,7 +60,7 @@ public class WishList {
         return "WishList{" +
                 "wishListID=" + wishListID +
                 ", title='" + title + '\'' +
-                ", image='" + image + '\'' +
+                ", image='" + billed + '\'' +
                 ", wishes=" + wishes +
                 '}';
     }

@@ -4,18 +4,18 @@ public class Wish {
     private int wishID;
     private String name;
     private String description;
-    private String image;
+    private String billed;
     private String url;
 
     public Wish() {
 
     }
 
-    public Wish(int wishID, String name, String description, String image, String url) {
+    public Wish(int wishID, String name, String description, String billed, String url) {
         this.wishID = wishID;
         this.name = name;
         this.description = description;
-        this.image = image;
+        this.billed = billed;
         this.url = url;
     }
 
@@ -43,12 +43,12 @@ public class Wish {
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
+    public String getBilled() {
+        return billed;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setBilled(String billed) {
+        this.billed = billed;
     }
 
     public String getUrl() {
@@ -64,7 +64,7 @@ public class Wish {
         return "Wish{" +
                 "wishID=" + wishID +
                 ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
+                ", image='" + billed + '\'' +
                 ", url='" + url + '\'' +
                 '}';
     }

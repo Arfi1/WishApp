@@ -1,6 +1,5 @@
 package com.example.wishapp.controller;
 
-import com.example.wishapp.model.Wish;
 import com.example.wishapp.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,15 +28,15 @@ public class WishController {
             return "home/new";
         }
 
-        @PostMapping("/insert")
-        public String insert(@RequestParam String title, @RequestParam int WishID,
-                             @RequestParam String beskrivelse, @RequestParam String billed, @RequestParam String URL) {
-            wishService.insert(WishID, beskrivelse, title, billed, URL);
-            return "redirect:/";
+    @PostMapping("/insert")
+    public String insert(@RequestParam String title, @RequestParam int WishID,
+                         @RequestParam String beskrivelse, @RequestParam String billed, @RequestParam String URL) {
+        wishService.insert(WishID, beskrivelse, title, billed, URL);
+        return "redirect:/";
+    }
 
-        }
 
-        @GetMapping("/prepare_update")
+    @GetMapping("/prepare_update")
         public String prepareUpdate(@RequestParam int id, Model model) {
             model.addAttribute(wishService.prepareUpdate(id));
             return "home/update";

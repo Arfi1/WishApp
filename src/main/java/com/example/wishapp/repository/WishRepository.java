@@ -27,12 +27,12 @@ public class WishRepository {
     }
 
     public void delete(int id) {
-        String query = "Delete FROM movie WHERE id = ?";
+        String query = "Delete FROM wish WHERE id = ?";
         jdbcTemplate.update(query, id);
     }
 
     public void insert(int WishID, String beskrivelse, String title, String billed, String URL) {
-        String query = "INSERT INTO wish(WishID, beskrivelse, title, billed, URL)" + "VALUES (?,?,?,?);";
+        String query = "INSERT INTO wish(WishID, beskrivelse, title, billed, URL)" + "VALUES (?,?,?,?,?);";
         jdbcTemplate.update(query, WishID, beskrivelse, title, billed, URL);
     }
 
