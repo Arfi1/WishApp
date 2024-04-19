@@ -12,14 +12,6 @@
 </form>
 
 <table>
-    <thead>
-    <td>ID</td>
-    <td>Title</td>
-    <td>Billed </td>
-    <td> URL </td>
-    <td> Update </td>
-    <td> Delete </td>
-    </thead>
     <tr th:each="wish: ${wishes}">
         <td th:text="${wish.Wishid}"></td>
         <td th:text="${wish.title}"></td>

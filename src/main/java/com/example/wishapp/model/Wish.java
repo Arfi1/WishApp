@@ -3,7 +3,7 @@ package com.example.wishapp.model;
 public class Wish {
     private int wishID;
     private String name;
-    private String description;
+    private String beskrivelse;
     private String billed;
     private String url;
 
@@ -11,10 +11,10 @@ public class Wish {
 
     }
 
-    public Wish(int wishID, String name, String description, String billed, String url) {
+    public Wish(int wishID, String name, String beskrivelse, String billed, String url) {
         this.wishID = wishID;
         this.name = name;
-        this.description = description;
+        this.beskrivelse = beskrivelse;
         this.billed = billed;
         this.url = url;
     }
@@ -35,12 +35,12 @@ public class Wish {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBeskrivelse() {
+        return beskrivelse;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setBeskrivelse(String beskrivelse) {
+        this.beskrivelse = beskrivelse;
     }
 
     public String getBilled() {
@@ -63,7 +63,7 @@ public class Wish {
     public String toString() {
         return "Wish{" +
                 "wishID=" + wishID +
-                ", description='" + description + '\'' +
+                ", description='" + beskrivelse + '\'' +
                 ", image='" + billed + '\'' +
                 ", url='" + url + '\'' +
                 '}';
