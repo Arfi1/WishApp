@@ -63,16 +63,16 @@
 </head>
 <body>
 <div class="form-container">
-    <h1>Create Wish</h1>x
-    <form action="#" th:action="@{/create-wish}" th:object="${newWish}" method="post">
+    <h1>Create Wish</h1>
+    <form action="/insert" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" th:field="*{name}" required><br><br>
+        <input type="text" id="name" ><br><br>
         <label for="description">Description:</label>
-        <input type="text" id="description" th:field="*{description}" required><br><br>
+        <input type="text" id="description" ><br><br>
         <label for="image">Image URL:</label>
-        <input type="text" id="image" th:field="*{image}" required><br><br>
+        <input type="text" id="image"  ><br><br>
         <label for="url">URL:</label>
-        <input type="text" id="url" th:field="*{url}" required><br><br>
+        <input type="text" id="url" ><br><br>
         <input type="submit" value="Create">
     </form>
 

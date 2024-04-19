@@ -3,21 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover,
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button {
+            display: inline-block;
+            margin: 0 auto;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Wishlist</h1>
-<form action="/create-wish" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
-    <label>Name:</label>
-    <input type="text" th:field="name"/>
-    <label>Description:</label>
-    <input type="text" th:field="description"/>
-    <button type="submit">Add Wish</button>
-</form>
-<ul>
-    <li th:each="wish : ${wishes}">
-        <span th:text="${wish.name} + ' - ' + ${wish.description}"></span>
-        <a th:href="@{/wishes/delete/{id}(id=${wish.id})}">Delete</a>
-    </li>
-</ul>
+
+<div class="container">
+    <h1>Wishlist</h1>
+    <form action="/insert" th:action="@{/wishes/add}" th:object="${newWish}" method="post">
+        <label>Name:</label>
+        <input type="text" th:field="name"/>
+        <label>Description:</label>
+        <input type="text" th:field="description"/>
+        <button type="submit">Add Wish</button>
+    </form>
+    <ul>
+        <li th:each="wish : ${wishes}">
+            <span th:text="${wish.name} + ' - ' + ${wish.description}"></span>
+            <a th:href="@{/wishes/delete/{id}(id=${wish.id})}">Delete</a>
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>

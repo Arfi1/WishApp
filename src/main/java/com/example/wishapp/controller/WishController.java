@@ -23,9 +23,9 @@ public class WishController {
             return "redirect:/";
         }
 
-        @GetMapping("/new")
+        @GetMapping("/create-wish")
         public String insert() {
-            return "home/new";
+            return "home/create-wish";
         }
 
     @PostMapping("/insert")

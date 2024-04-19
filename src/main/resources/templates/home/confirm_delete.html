@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align:center;
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 25px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 60px;
+            cursor: pointer;
+            background-color: black;
+        }
+
+    </style>
 </head>
 <body>
 
 <h1> Confirm delete</h1>
-
+<div class="form-container">
 <table>
     <!-- First TR-statement of confirm delete -->
     <tr>
@@ -23,6 +88,7 @@
     <!-- Second TR statement of cancel and delete -->
     <tr>
         <!-- First form -->
+
         <form action="/delete" method="post">
             <input type="hidden" name="Wishid" th:value="${wish.Wishid}">
             <button type="submit">Delete</button>
@@ -33,6 +99,6 @@
         </form>
     </tr>
 </table>
-
+</div>
 </body>
 </html>
